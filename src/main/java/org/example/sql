@@ -1,0 +1,24 @@
+Q1:
+SELECT PlayerId, MAX(Score)
+FROM games
+GROUP BY PlayerId;
+
+
+
+
+SELECT *
+FROM players
+WHERE playerID NOT IN
+( SELECT playerID
+  FROM
+    games)
+
+
+
+select id, score
+    (select id,sum(score) as s_score
+        from
+            player join game
+            on
+            p.id=g.id)
+       where score>100
